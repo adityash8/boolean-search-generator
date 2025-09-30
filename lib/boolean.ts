@@ -92,7 +92,7 @@ function orBlock(terms: string[]): string {
 
 function notBlock(terms: string[]): string {
   if (!terms.length) return "";
-  return terms.map(t => `NOT ${/[\s"]/.test(t) ? `"${t.replaceAll('"','\\"')}"` : t}`).join(" ");
+  return terms.map(t => `NOT ${/[\s"]/.test(t) ? `"${t.replace(/"/g,'\\"')}"` : t}`).join(" ");
 }
 
 export function buildBoolean({
